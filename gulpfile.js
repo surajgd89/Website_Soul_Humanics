@@ -1,33 +1,37 @@
 "use strict";
-
-const sass = require("gulp-sass")(require("sass"));
 const gulp = require("gulp");
-const gutil = require("gulp-util");
 const sourcemaps = require("gulp-sourcemaps");
-const fileinclude = require("gulp-file-include");
 const autoprefixer = require("gulp-autoprefixer");
-const bs = require("browser-sync").create();
-const rimraf = require("rimraf");
+const concat = require('gulp-concat');
+
+const gutil = require("gulp-util");
+
+const fileinclude = require("gulp-file-include");
+const sass = require("gulp-sass")(require("sass"));
+
 const comments = require("gulp-header-comment");
 const jshint = require("gulp-jshint");
 const notify = require("gulp-notify");
 const plumber = require("gulp-plumber");
+const bs = require("browser-sync").create();
+const rimraf = require("rimraf");
+
 
 var path = {
   src: {
-    html: "source/*.html",
-    others: "source/*.+(php|ico|png)",
-    htminc: "source/partials/**/*.htm",
-    incdir: "source/partials/",
-    plugins: "source/plugins/**/*.*",
-    js: "source/js/*.js",
-    scss: "source/scss/**/*.scss",
-    images: "source/images/**/*.+(png|jpg|gif|svg)",
-    fonts: "source/fonts/**/*.+(eot|ttf|woff|woff2|otf)",
+    html: "src/*.html",
+    components: "src/includes/**/*.htm",
+    includes: "src/includes/",
+    plugins: "src/plugins/**/*.*",
+    js: "src/js/*.js",
+    scss: "src/scss/**/*.scss",
+    images: "src/images/**/*.+(png|jpg|gif|svg)",
+    fonts: "src/fonts/**/*.+(eot|ttf|woff|woff2|otf)",
+    others: "src/*.+(php|ico|png)",
   },
   build: {
-    dirBuild: "theme/",
-    dirDev: "theme/",
+    dirBuild: "dist/",
+    dirDev: "dist/",
   },
 };
 
@@ -38,15 +42,14 @@ gulp.task("html:build", function () {
     .pipe(customPlumber("Error Running html-include"))
     .pipe(
       fileinclude({
-        basepath: path.src.incdir,
+        basepath: path.src.includes,
       })
     )
     .pipe(
       comments(`
-    WEBSITE: https://themefisher.com
-    TWITTER: https://twitter.com/themefisher
-    FACEBOOK: https://www.facebook.com/themefisher
-    GITHUB: https://github.com/themefisher/
+    WEBSITE: https://www.soulhumanics.com   
+    FACEBOOK: https://www.facebook.com/soulhumanics/
+    INSTAGRAM: https://www.instagram.com/soulhumanics/    
     `)
     )
     .pipe(gulp.dest(path.build.dirDev))
@@ -71,10 +74,9 @@ gulp.task("scss:build", function () {
     .pipe(sourcemaps.write("/"))
     .pipe(
       comments(`
-    WEBSITE: https://themefisher.com
-    TWITTER: https://twitter.com/themefisher
-    FACEBOOK: https://www.facebook.com/themefisher
-    GITHUB: https://github.com/themefisher/
+        WEBSITE: https://www.soulhumanics.com   
+        FACEBOOK: https://www.facebook.com/soulhumanics/
+        INSTAGRAM: https://www.instagram.com/soulhumanics/
     `)
     )
     .pipe(gulp.dest(path.build.dirDev + "css/"))
@@ -103,10 +105,9 @@ gulp.task("js:build", function () {
     .on("error", gutil.log)
     .pipe(
       comments(`
-  WEBSITE: https://themefisher.com
-  TWITTER: https://twitter.com/themefisher
-  FACEBOOK: https://www.facebook.com/themefisher
-  GITHUB: https://github.com/themefisher/
+        WEBSITE: https://www.soulhumanics.com   
+        FACEBOOK: https://www.facebook.com/soulhumanics/
+        INSTAGRAM: https://www.instagram.com/soulhumanics/
   `)
     )
     .pipe(gulp.dest(path.build.dirDev + "js/"))
@@ -153,7 +154,7 @@ gulp.task("plugins:build", function () {
     );
 });
 
-// Other files like favicon, php, sourcele-icon on root directory
+// Other files like favicon, php, srcle-icon on root directory
 gulp.task("others:build", function () {
   return gulp.src(path.src.others).pipe(gulp.dest(path.build.dirDev));
 });
@@ -178,7 +179,7 @@ function customPlumber(errTitle) {
 // Watch Task
 gulp.task("watch:build", function () {
   gulp.watch(path.src.html, gulp.series("html:build"));
-  gulp.watch(path.src.htminc, gulp.series("html:build"));
+  gulp.watch(path.src.components, gulp.series("html:build"));
   gulp.watch(path.src.scss, gulp.series("scss:build"));
   gulp.watch(path.src.js, gulp.series("js:build"));
   gulp.watch(path.src.images, gulp.series("images:build"));

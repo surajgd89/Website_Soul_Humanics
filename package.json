@@ -1,9 +1,9 @@
 {
-  "name": "gymfit",
+  "name": "soulhumanics",
   "version": "1.0.0",
-  "description": "gymfit free bootstrap gym website template",
-  "author": "Themefisher",
-  "license": "MIT",
+  "description": "Soul Humanics",
+  "author": "ShreeshaDigital",
+  "license": "",
   "scripts": {
     "dev": "gulp",
     "build": "gulp build"
