@@ -1,8 +1,7 @@
 /**
- * WEBSITE: https://themefisher.com
- * TWITTER: https://twitter.com/themefisher
- * FACEBOOK: https://www.facebook.com/themefisher
- * GITHUB: https://github.com/themefisher/
+ * WEBSITE: https://www.soulhumanics.com
+ * FACEBOOK: https://www.facebook.com/soulhumanics/
+ * INSTAGRAM: https://www.instagram.com/soulhumanics/
  */
 
 (function ($) {
@@ -85,7 +84,7 @@
 		}
 	});
 
-	let currentYear = new Date().getFullYear();
+	var currentYear = new Date().getFullYear();
 	$('#currentYear').text(currentYear);
 
 	$('.testimonial-slider').slick({
@@ -104,6 +103,17 @@
 		autoplay: true,
 		autoplaySpeed: 5000,
 		dots: true
+	});
+
+	$('.clients-logo').slick({
+		slidesToShow: 4,
+		slidesToScroll: 1,
+		infinite: true,
+		arrows: false,
+		autoplay: true,
+		autoplaySpeed: 2000,
+		dots: false,
+		centerPadding: '20px'
 	});
 
 	// Init Magnific Popup

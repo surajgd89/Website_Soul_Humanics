@@ -1,8 +1,79 @@
+// Fonts
+@import url("https://fonts.googleapis.com/css2?family=Karla:wght@300;400;500;600;700;800&family=Montserrat:wght@300;400;500;600;700;800&display=swap");
+
 html,
 body {
   overflow-x: hidden;
   width: 100%;
 }
+
+body {
+  font-family: $secondary-font;
+  -webkit-font-smoothing: antialiased;
+  font-size: 18px;
+  line-height: 1.8;
+  color: rgba(0, 0, 0, 0.6);
+}
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6 {
+  font-family: $primary-font;
+  font-weight: 700;
+  color: $black;
+  letter-spacing: 0.5px;
+}
+
+h1,
+.h1 {
+  font-size: 48px;
+  text-transform: uppercase;
+}
+h2,
+.h2 {
+  font-size: 38px;
+  text-transform: uppercase;
+}
+h3,
+.h3 {
+  font-size: 28px;
+  line-height: 38px;
+  text-transform: uppercase;
+}
+h4,
+.h4 {
+  font-size: 22px;
+  line-height: 30px;
+}
+
+h5,
+.h5 {
+  font-size: 18px;
+  line-height: 24px;
+}
+h6,
+.h6 {
+  font-size: 16px;
+  text-transform: uppercase;
+  font-weight: 400;
+}
+
+.font-primary {
+  font-family: $primary-font;
+}
+
+.font-secondary {
+  font-family: $secondary-font;
+}
+
 .navbar-toggle .icon-bar {
   background: $primary-color;
 }
@@ -14,7 +85,7 @@ input[type="tel"] {
   box-shadow: none;
   height: 50px;
   outline: none;
-  font-size: 14px;
+  font-size: 16px;
   &:focus {
     box-shadow: none;
     border: 1px solid $primary-color;
@@ -34,22 +105,19 @@ input[type="tel"] {
 
 .btn {
   display: inline-block;
-  font-size: 14px;
+  font-size: 16px;
   letter-spacing: 1px;
   padding: 18px 35px;
   text-transform: uppercase;
   border-radius: 0;
   font-weight: 700;
   @include transition(all, 0.5s, ease);
-  border: 1px solid transparent;
 }
-
 .btn-main {
-  background: linear-gradient(90deg, rgb(0, 50, 53) 0%, #eca338 100%);
-  border-color: #fff;
+  background: $extra-color;
   color: $light;
   &:hover {
-    background: linear-gradient(90deg, #eca338 0%, rgb(0, 50, 53) 100%);
+    background: $primary-color;
     color: $light !important;
     -webkit-transform: translateY(-5px);
     -moz-transform: translateY(-5px);
@@ -102,7 +170,7 @@ input[type="tel"] {
 .btn-small {
   @extend .btn-main;
   padding: 10px 25px;
-  font-size: 12px;
+  font-size: 14px;
 }
 
 .btn-round {
@@ -199,7 +267,7 @@ input[type="tel"] {
 }
 
 .text-sm {
-  font-size: 14px;
+  font-size: 16px;
 }
 .text-md {
   font-size: 26px;

@@ -39,7 +39,7 @@
     -ms-transition: all 600ms ease;
     -o-transition: all 600ms ease;
     transition: all 600ms ease;
-    background: linear-gradient(90deg, rgb(0 50 53) 0%, #eca338 100%);
+    background: $extra-color;
     border-color: $primary-color;
   }
 

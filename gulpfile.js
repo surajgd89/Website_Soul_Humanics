@@ -3,12 +3,9 @@ const gulp = require("gulp");
 const sourcemaps = require("gulp-sourcemaps");
 const autoprefixer = require("gulp-autoprefixer");
 const concat = require('gulp-concat');
-
 const gutil = require("gulp-util");
-
 const fileinclude = require("gulp-file-include");
 const sass = require("gulp-sass")(require("sass"));
-
 const comments = require("gulp-header-comment");
 const jshint = require("gulp-jshint");
 const notify = require("gulp-notify");
@@ -16,7 +13,7 @@ const plumber = require("gulp-plumber");
 const bs = require("browser-sync").create();
 const rimraf = require("rimraf");
 
-
+//Path
 var path = {
   src: {
     html: "src/*.html",
@@ -64,14 +61,16 @@ gulp.task("html:build", function () {
 gulp.task("scss:build", function () {
   return gulp
     .src(path.src.scss)
-    .pipe(sourcemaps.init())
     .pipe(
       sass({
-        outputStyle: "expanded",
+        outputStyle: "compressed",
       }).on("error", sass.logError)
     )
+    .pipe(sourcemaps.init())
     .pipe(autoprefixer())
+    .pipe(concat('style-all.css'))
     .pipe(sourcemaps.write("/"))
+
     .pipe(
       comments(`
         WEBSITE: https://www.soulhumanics.com   
@@ -91,7 +90,10 @@ gulp.task("scss:build", function () {
 gulp.task("js:build", function () {
   return gulp
     .src(path.src.js)
-    .pipe(jshint("./.jshintrc"))
+    .pipe(jshint("././.jshintrc"))
+    .pipe(jshint.reporter("jshint-stylish"))
+    .on("error", gutil.log)
+    .pipe(concat('script-all.js'))
     .pipe(
       notify(function (file) {
         if (!file.jshint.success) {
@@ -101,8 +103,7 @@ gulp.task("js:build", function () {
         }
       })
     )
-    .pipe(jshint.reporter("jshint-stylish"))
-    .on("error", gutil.log)
+
     .pipe(
       comments(`
         WEBSITE: https://www.soulhumanics.com   
@@ -161,7 +162,7 @@ gulp.task("others:build", function () {
 
 // Clean Build Folder
 gulp.task("clean", function (cb) {
-  rimraf("./theme", cb);
+  rimraf("./dist", cb);
 });
 
 // Error Message Show

@@ -2,4 +2,8 @@
   background: url("../images/bg/bg-fix.jpg") fixed 50% 50% no-repeat;
   background-size: cover;
   @extend .overly-2;
+
+  .btn-main {
+    border: 2px solid #fff;
+  }
 }
