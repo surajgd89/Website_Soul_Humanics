@@ -10,8 +10,8 @@ body {
 body {
   font-family: $secondary-font;
   -webkit-font-smoothing: antialiased;
-  font-size: 18px;
-  line-height: 1.8;
+  font-size: 16px;
+  line-height: 1.5;
   color: rgba(0, 0, 0, 0.6);
 }
 h1,
@@ -34,36 +34,46 @@ h6,
 
 h1,
 .h1 {
-  font-size: 48px;
+  font-size: 36px;
   text-transform: uppercase;
 }
 h2,
 .h2 {
-  font-size: 38px;
+  font-size: 28px;
   text-transform: uppercase;
 }
 h3,
 .h3 {
-  font-size: 28px;
-  line-height: 38px;
+  font-size: 20px;
   text-transform: uppercase;
 }
 h4,
 .h4 {
-  font-size: 22px;
-  line-height: 30px;
+  font-size: 18px;
 }
 
 h5,
 .h5 {
-  font-size: 18px;
-  line-height: 24px;
+  font-size: 16px;
 }
+
 h6,
 .h6 {
-  font-size: 16px;
+  font-size: 14px;
   text-transform: uppercase;
   font-weight: 400;
+}
+
+.text-sm {
+  font-size: 14px;
+}
+
+.text-md {
+  font-size: 26px;
+}
+
+.text-lg {
+  font-size: 44px;
 }
 
 .font-primary {
@@ -107,12 +117,13 @@ input[type="tel"] {
   display: inline-block;
   font-size: 16px;
   letter-spacing: 1px;
-  padding: 18px 35px;
+  padding: 14px 30px;
   text-transform: uppercase;
   border-radius: 0;
   font-weight: 700;
   @include transition(all, 0.5s, ease);
 }
+
 .btn-main {
   background: $extra-color;
   color: $light;
@@ -195,6 +206,7 @@ input[type="tel"] {
 .bg-gray {
   background: #f0f2f4;
 }
+
 .bg-primary {
   background: $primary-color !important;
 }
@@ -266,18 +278,6 @@ input[type="tel"] {
   color: $black;
 }
 
-.text-sm {
-  font-size: 16px;
-}
-.text-md {
-  font-size: 26px;
-  line-height: 36px;
-}
-.text-lg {
-  font-size: 56px;
-  line-height: 66px;
-}
-
 .no-spacing {
   letter-spacing: 0px;
 }
@@ -296,14 +296,89 @@ a:focus {
   outline: 0;
 }
 
-.font-size-13 {
-  font-size: 13px;
-}
-
 .letter-spacing {
   letter-spacing: 1px;
 }
 
 .bg-black-50 {
   background: $extra-color;
+}
+
+#overlayer {
+  width: 100%;
+  height: 100%;
+  z-index: 1032;
+  background: #4a4a4a;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1031;
+}
+
+.loader {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  z-index: 1032;
+  border: 2px solid #fff;
+  top: 50%;
+  left: 0;
+  right: 0;
+  margin: auto;
+  animation: loader 2s infinite ease;
+
+  .loader-inner {
+    vertical-align: top;
+    display: inline-block;
+    width: 100%;
+    background-color: $primary-color;
+    animation: loader-inner 2s infinite ease-in;
+  }
+}
+
+@keyframes loader {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  25% {
+    transform: rotate(180deg);
+  }
+
+  50% {
+    transform: rotate(180deg);
+  }
+
+  75% {
+    transform: rotate(360deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes loader-inner {
+  0% {
+    height: 0%;
+  }
+
+  25% {
+    height: 0%;
+  }
+
+  50% {
+    height: 100%;
+  }
+
+  75% {
+    height: 100%;
+  }
+
+  100% {
+    height: 0%;
+  }
 }

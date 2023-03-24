@@ -1,22 +1,22 @@
 .slider {
-  background: url("images/bg/bg.jpg") no-repeat 0% 30%;
+  background: url("../../images/bg/bg.jpg") no-repeat 0% 30%;
   background-size: cover;
   padding: 180px 0px;
 
   @extend .overly-2;
 
   h1 {
-    font-size: 95px;
-    line-height: 95px;
+    font-size: 70px;
+    line-height: 75px;
     border-left: 2px solid #eca338;
     padding-left: 20px;
   }
 
   span.subhead {
     color: $light;
-    letter-spacing: 2px;
-    border: 2px solid $light;
-    padding: 3px 15px 5px 15px;
+    letter-spacing: 1px;
+    border: 1px solid $light;
+    padding: 5px 15px 5px 15px;
     opacity: 0.8;
   }
 

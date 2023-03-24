@@ -34,7 +34,6 @@
   "es5": false,
   "esnext": true,
   "moz": false,
-
   "evil": true,
   "expr": true,
   "funcscope": false,
@@ -54,8 +53,8 @@
   "supernew": false,
   "validthis": false,
   "globals": {
-    "jQuery": false,
+    "jQuery": true,
     "google": false,
-    "$": false
+    "$": true
   }
 }

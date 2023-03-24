@@ -1,4 +1,3 @@
-
 /*=== MEDIA QUERY ===*/
 @include mobile-xs {
   .dropdown-menu {
@@ -68,12 +67,12 @@
   }
 }
 @include desktop {
-  .navbar-nav .dropdown-menu {
+  /* .navbar-nav .dropdown-menu {
     display: block;
-  }
+  } */
 }
 @include large-desktop {
-  .navbar-nav .dropdown-menu {
+  /*  .navbar-nav .dropdown-menu {
     display: block;
-  }
+  } */
 }

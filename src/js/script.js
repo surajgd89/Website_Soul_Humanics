@@ -1,5 +1,13 @@
-(function ($) {
+
+
+
+$(function () {
 	'use strict';
+
+	setTimeout(function () {
+		$('.loader').hide();
+		$('#overlayer').hide();
+	}, 2000);
 
 	$(window).scroll(function () {
 		if ($('.navigation').offset().top > 100) {
@@ -133,4 +141,6 @@
 		}
 	});
 
-})(jQuery);
+
+});
+
