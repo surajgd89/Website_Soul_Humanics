@@ -68,7 +68,7 @@ gulp.task("scss:build", function () {
     )
     .pipe(sourcemaps.init())
     .pipe(autoprefixer())
-    .pipe(concat('style-all.css'))
+    .pipe(concat('style.css'))
     .pipe(sourcemaps.write("/"))
 
     .pipe(
@@ -93,7 +93,7 @@ gulp.task("js:build", function () {
     .pipe(jshint("././.jshintrc"))
     .pipe(jshint.reporter("jshint-stylish"))
     .on("error", gutil.log)
-    .pipe(concat('script-all.js'))
+    .pipe(concat('script.js'))
     .pipe(
       notify(function (file) {
         if (!file.jshint.success) {
