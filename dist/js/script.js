@@ -32,6 +32,61 @@ $(function () {
 		});
 	});
 
+	var currentYear = new Date().getFullYear();
+	$('#currentYear').text(currentYear);
+
+	$('.testimonial-slider').slick({
+		slidesToShow: 1,
+		infinite: true,
+		arrows: false,
+		autoplay: true,
+		autoplaySpeed: 5000,
+		dots: true
+	});
+
+	$('.banner-slider').slick({
+		slidesToShow: 1,
+		infinite: true,
+		arrows: false,
+		autoplay: true,
+		autoplaySpeed: 5000,
+		dots: true
+	});
+
+	$('.clients-logo').slick({
+		slidesToShow: 4,
+		slidesToScroll: 1,
+		infinite: true,
+		arrows: false,
+		autoplay: true,
+		autoplaySpeed: 2000,
+		dots: false,
+		centerPadding: '20px'
+	});
+
+	// Init Magnific Popup
+	$('.portfolio-popup').magnificPopup({
+		delegate: 'a',
+		type: 'image',
+		gallery: {
+			enabled: true
+		},
+		mainClass: 'mfp-with-zoom',
+		navigateByImgClick: true,
+		arrowMarkup: '<button title="%title%" type="button" class="mfp-arrow mfp-arrow-%dir%"></button>',
+		tPrev: 'Previous (Left arrow key)',
+		tNext: 'Next (Right arrow key)',
+		tCounter: '<span class="mfp-counter">%curr% of %total%</span>',
+		zoom: {
+			enabled: true,
+			duration: 300,
+			easing: 'ease-in-out',
+			opener: function (openerElement) {
+				return openerElement.is('img') ? openerElement : openerElement.find('img');
+			}
+		}
+	});
+
 	$('#contact-form').validate({
 		rules: {
 			user_name: {
@@ -87,61 +142,6 @@ $(function () {
 					$('#contact-form #error').fadeIn();
 				}
 			});
-		}
-	});
-
-	var currentYear = new Date().getFullYear();
-	$('#currentYear').text(currentYear);
-
-	$('.testimonial-slider').slick({
-		slidesToShow: 1,
-		infinite: true,
-		arrows: false,
-		autoplay: true,
-		autoplaySpeed: 5000,
-		dots: true
-	});
-
-	$('.banner-slider').slick({
-		slidesToShow: 1,
-		infinite: true,
-		arrows: false,
-		autoplay: true,
-		autoplaySpeed: 5000,
-		dots: true
-	});
-
-	$('.clients-logo').slick({
-		slidesToShow: 4,
-		slidesToScroll: 1,
-		infinite: true,
-		arrows: false,
-		autoplay: true,
-		autoplaySpeed: 2000,
-		dots: false,
-		centerPadding: '20px'
-	});
-
-	// Init Magnific Popup
-	$('.portfolio-popup').magnificPopup({
-		delegate: 'a',
-		type: 'image',
-		gallery: {
-			enabled: true
-		},
-		mainClass: 'mfp-with-zoom',
-		navigateByImgClick: true,
-		arrowMarkup: '<button title="%title%" type="button" class="mfp-arrow mfp-arrow-%dir%"></button>',
-		tPrev: 'Previous (Left arrow key)',
-		tNext: 'Next (Right arrow key)',
-		tCounter: '<span class="mfp-counter">%curr% of %total%</span>',
-		zoom: {
-			enabled: true,
-			duration: 300,
-			easing: 'ease-in-out',
-			opener: function (openerElement) {
-				return openerElement.is('img') ? openerElement : openerElement.find('img');
-			}
 		}
 	});
 
