@@ -17,7 +17,6 @@ $(function () {
 		}
 	});
 
-
 	$('.portfolio-gallery').each(function () {
 		$(this).find('.popup-gallery').magnificPopup({
 			type: 'image',
@@ -26,7 +25,6 @@ $(function () {
 			}
 		});
 	});
-
 
 	$('#contact-form').validate({
 		rules: {
@@ -140,7 +138,6 @@ $(function () {
 			}
 		}
 	});
-
 
 });
 
